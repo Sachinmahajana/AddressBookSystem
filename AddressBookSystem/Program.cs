@@ -37,11 +37,46 @@ namespace AddressBookSystem
                         address1.Display();
                         address1.addPerson();
                         break;
+                    case 3:
+
+                        AddressBook address2 = new AddressBook();
+                        bool value1 = true;
+
+                        while (value1)
+                        {
+                            Console.WriteLine("Follow Steps to add details:\n" +
+                               "1.addContact\n" + " 2.Edit Contact\n" +
+                               "3.Display Contact\n");
+
+                            int option = Convert.ToInt32(Console.ReadLine());
+                            switch (option)
+                            {
+                                case 1:
+                                    address2.addPerson();
+                                    break;
+                                case 2:
+                                    address2.EditContact();
+                                    break;
+
+                                case 3:
+                                    address2.Display();
+                                    break;
+
+                                default:
+
+                                    value = !value;
+                                    break;
+                            }
+
+                        }
+                        break;
+
                     default:
                         Console.WriteLine("Please choice correct option");
                         break;
                 }
                 value = false;
+                Console.WriteLine("Try Again");
                 break;
             }
         }
