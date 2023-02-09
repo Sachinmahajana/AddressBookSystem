@@ -11,7 +11,7 @@ namespace AddressBookSystem
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to AddressBookSystem Program");
+            Console.WriteLine("!!!Welcome To AddressBook Program!!!!");
             bool value = true;
 
             while (value)
@@ -20,9 +20,8 @@ namespace AddressBookSystem
                     "1.add Contact in List\n" +
                     "2.add new Contact  Contact\n" +
                     "3.Edit Contact\n" +
-                    "4.Delete Contact"+
+                    "4.Delete Contact\n" +
                     "5. Add Multiple contact ");
-
 
                 int choice = Convert.ToInt32(Console.ReadLine());
 
@@ -107,7 +106,6 @@ namespace AddressBookSystem
                                 case 5:
                                     address3.AddMultipleContact();
                                     break;
-                             
                                 default:
 
                                     value = !value;
@@ -156,6 +154,11 @@ namespace AddressBookSystem
                                     break;
                             }
                         }
+                        break;
+                    case 6:
+                        AddressBook address5 = new AddressBook();
+                        address5.NewUser();
+
                         break;
 
                     default:

@@ -8,7 +8,20 @@ namespace AddressBookSystem
 {
     internal class AddressBook
     {
-        public List<Createcontact> addressBookSystem = new List<Createcontact>();
+        public List<Createcontact> addressBookSysytem = new List<Createcontact>();
+        Dictionary<string, List<Createcontact>> book = new Dictionary<string, List<Createcontact>>();
+        public void NewUser()
+        {
+            Console.WriteLine("Enter the book Name:");
+            String Bookname = Console.ReadLine();
+            Console.WriteLine("Enter the Number of constants to add");
+            int no = Convert.ToInt32(Console.ReadLine());
+            while (no > 0)
+            {
+                no--;
+                addPerson();
+            }
+        }
         public void createContact()
         {
             Createcontact contacts = new Createcontact();
@@ -25,12 +38,11 @@ namespace AddressBookSystem
             contacts.state = Console.ReadLine();
             Console.WriteLine("Enter the zip");
             contacts.zip = Convert.ToInt32(Console.ReadLine());
-
             Console.WriteLine("Enter Phone Number: ");
             contacts.PhoneNo = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Enter Email Address: ");
             contacts.Email = Console.ReadLine();
-            addressBookSystem.Add(contacts);
+            addressBookSysytem.Add(contacts);
         }
         public void addPerson()
         {
@@ -39,7 +51,7 @@ namespace AddressBookSystem
             Console.WriteLine("Enter First Name of Person :");
             newcontact.First_Name = Console.ReadLine();
 
-            foreach (Createcontact contact in addressBookSystem)
+            foreach (Createcontact contact in addressBookSysytem)
             {
                 if (contact.First_Name == newcontact.First_Name)
                 {
@@ -68,14 +80,14 @@ namespace AddressBookSystem
             Console.WriteLine("Enter Email-Id");
             newcontact.Email = Console.ReadLine();
 
-            addressBookSystem.Add(newcontact);
+            addressBookSysytem.Add(newcontact);
         }
         public void EditContact()
         {
             Console.WriteLine("Please Enter Name of Person to Edit");
             string FirstName = Console.ReadLine();
 
-            foreach (Createcontact contact in addressBookSystem)
+            foreach (Createcontact contact in addressBookSysytem)
             {
                 if (contact.First_Name == FirstName)
                 {
@@ -145,11 +157,11 @@ namespace AddressBookSystem
             Console.WriteLine("Enter Name Do You Want to Delete");
             string FirstName = Console.ReadLine();
 
-            foreach (Createcontact contact in addressBookSystem)
+            foreach (Createcontact contact in addressBookSysytem)
             {
                 if (contact.First_Name.ToLower() == FirstName.ToLower())
                 {
-                    addressBookSystem.Remove(contact);
+                    addressBookSysytem.Remove(contact);
                     Console.WriteLine("Entered First Name is Deleted from the List");
                     return;
                 }
@@ -172,9 +184,10 @@ namespace AddressBookSystem
         }
 
 
+
         public void Display()
         {
-            foreach (Createcontact contact in addressBookSystem)
+            foreach (Createcontact contact in addressBookSysytem)
             {
                 Console.WriteLine(contact.First_Name);
                 Console.WriteLine(contact.Last_Name);
